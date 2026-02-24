@@ -127,3 +127,4 @@
 /Users/chayanonbharasarn/Desktop/personal/dotnet-next/backend/src/MyProject.Api/obj/Debug/net8.0/MyProject.Api.pdb
 /Users/chayanonbharasarn/Desktop/personal/dotnet-next/backend/src/MyProject.Api/obj/Debug/net8.0/MyProject.Api.genruntimeconfig.cache
 /Users/chayanonbharasarn/Desktop/personal/dotnet-next/backend/src/MyProject.Api/obj/Debug/net8.0/ref/MyProject.Api.dll
+/Users/chayanonbharasarn/Desktop/personal/dotnet-next/backend/src/MyProject.Api/obj/Debug/net8.0/MyProject.Api.sourcelink.json
