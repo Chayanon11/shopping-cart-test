@@ -6,48 +6,6 @@
 
 ---
 
-## User
-
-| Property | Type | Constraints | Description |
-|---|---|---|---|
-| Id | Guid | PK | Unique identifier |
-| Email | string | Max(255), Required, Unique | Login identity |
-| PasswordHash | string | Required | Bcrypt hashed |
-| FirstName | string | Max(100), Required | — |
-| LastName | string | Max(100), Required | — |
-| IsActive | bool | Default(true) | Soft-delete flag |
-| Roles | List\<Role\> | Many-to-Many | Permission roles |
-| CreatedAt | DateTimeOffset | Required, Auto | UTC timestamp |
-| UpdatedAt | DateTimeOffset | Required, Auto | UTC timestamp |
-
-**Indexes:** Email (Unique)
-**Domain Events:** UserRegisteredEvent, UserDeactivatedEvent
-
----
-
-## Role
-
-| Property | Type | Constraints | Description |
-|---|---|---|---|
-| Id | int | PK, Identity | — |
-| Name | string | Max(50), Unique | e.g. Admin, User |
-| Permissions | List\<string\> | JSON column | Permission claims |
-
----
-
-## RefreshToken
-
-| Property | Type | Constraints | Description |
-|---|---|---|---|
-| Id | Guid | PK | — |
-| UserId | Guid | FK → User.Id | Owner |
-| Token | string | Required, Unique | Hashed token |
-| ExpiresAt | DateTimeOffset | Required | Expiry time |
-| IsRevoked | bool | Default(false) | Revocation flag |
-| CreatedAt | DateTimeOffset | Required, Auto | — |
-
----
-
 ## Product
 
 | Property | Type | Constraints | Description |
@@ -67,7 +25,6 @@
 | Property | Type | Constraints | Description |
 |---|---|---|---|
 | Id | Guid | PK | Unique identifier |
-| UserId | Guid | FK → User.Id | Owner |
 | Items | List\<CartItem\> | One-to-Many | Items in the cart |
 | CreatedAt | DateTimeOffset | Required, Auto | UTC timestamp |
 | UpdatedAt | DateTimeOffset | Required, Auto | UTC timestamp |

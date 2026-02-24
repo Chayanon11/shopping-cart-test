@@ -56,7 +56,6 @@ Generate files in this order:
 - [ ] FluentValidation (not DataAnnotations)
 - [ ] All errors use typed exceptions from `Shared/Exceptions/`
 - [ ] Carter endpoint registered in correct version group `/api/v1/...`
-- [ ] `[Authorize(Policy = "...")]` if endpoint requires auth
 - [ ] No `Stack Trace` exposure in responses
 
 ---
@@ -94,7 +93,6 @@ tests/MyProject.Tests/Features/{Domain}/{FeatureName}Tests.cs
 Each test class must include at minimum:
 - Happy path test
 - Validation failure test
-- Auth/authorization failure test (if endpoint requires auth)
 
 **Naming:** `{Method}_{Scenario}_{ExpectedResult}`
 Example: `Register_WithValidData_Returns201Created`
@@ -155,7 +153,6 @@ public class {Feature}Endpoint : ICarterModule
         })
         .WithTags("{Domain}")
         .WithName("{Feature}")
-        .RequireAuthorization() // if needed
         .WithOpenApi();
     }
 }

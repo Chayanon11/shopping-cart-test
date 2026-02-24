@@ -62,9 +62,7 @@ return user.Id; // implicit success
 |---|---|---|
 | `ValidationException` | 400 | Shared/Exceptions/ |
 | `NotFoundException` | 404 | Shared/Exceptions/ |
-| `UnauthorizedException` | 401 | Shared/Exceptions/ |
 | `ConflictException` | 409 | Shared/Exceptions/ |
-| `ForbiddenException` | 403 | Shared/Exceptions/ |
 
 - All exceptions handled by `IExceptionHandler` (global)
 - Response format: RFC 7807 `ProblemDetails`
@@ -152,19 +150,8 @@ export const useRegister = () =>
 
 ```typescript
 // Axios interceptor in shared/api/client.ts handles:
-// 401 → clear auth store, redirect to /login
-// 403 → toast "Access Denied"
 // 500 → toast "Server Error"
 // Validation errors (400) → parsed from ProblemDetails and mapped to form fields
 ```
 
----
 
-## Shared: Security Policies (Backend Authorization)
-
-| Policy Name | Claim Required | Used On |
-|---|---|---|
-| `CanManageUsers` | `permission: users.manage` | Admin user endpoints |
-| `IsAuthenticated` | Any valid JWT | Default for protected routes |
-
-**Rule:** Never use `[Authorize(Roles = "Admin")]` — always use named Policies.

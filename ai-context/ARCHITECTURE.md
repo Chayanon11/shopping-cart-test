@@ -22,7 +22,6 @@
 | BE ORM | Entity Framework Core | 8 |
 | BE Mediator | MediatR | latest |
 | BE Validation | FluentValidation | latest |
-| BE Auth | JWT Bearer | — |
 | BE Routing | Carter | latest |
 | Database | PostgreSQL | 16 |
 
@@ -48,7 +47,6 @@
 │   │   │   ├── components/      ← Shared UI (Button, Modal, etc.)
 │   │   │   ├── hooks/           ← Shared hooks
 │   │   │   └── types/           ← Global types
-│   │   └── middleware.ts        ← Auth middleware (Next.js)
 │   ├── public/
 │   └── .ai-context/             ← THIS FOLDER (FE context)
 │
@@ -68,8 +66,7 @@
     │       │   ├── Exceptions/   ← Custom exceptions
     │       │   └── Extensions/   ← IServiceCollection extensions
     │       ├── Infrastructure/
-    │       │   ├── Persistence/  ← DbContext, Migrations
-    │       │   └── Auth/         ← JWT config
+    │       │   └── Persistence/  ← DbContext, Migrations
     │       ├── Domain/           ← Shared entities (cross-feature)
     │       └── Program.cs
     ├── tests/
@@ -113,11 +110,3 @@ Example:      /api/v1/users
 ```
 
 ---
-
-## Auth Flow
-
-```
-FE: NextAuth.js (or custom) → stores JWT in httpOnly cookie
-BE: JWT Bearer middleware validates token on every protected request
-Policy-Based Auth only — never [Authorize(Roles = "...")]
-```
