@@ -1,0 +1,6 @@
+- ARCHITECTURE.md = Stack overview, folder structure ทั้ง FE/BE, golden rules ,
+- entity_list.md = Domain entities ทั้งหมด (User, Role, RefreshToken) พร้อม constraints ,
+- api_list.md = Inventory endpoint ครบทุกตัว + map ไปถึง FE React Query hooks,
+- api_relation.md = Dependency graph ระหว่าง feature — AI อ่านก่อนแก้โค้ดเพื่อรู้ผลกระทบ,
+- conventions.md = Naming rules + code patterns บังคับ ทั้ง C# 12 และ TypeScript 5,
+- ai_workflow.md = SOP 6 ขั้นตอนสำหรับ AI — context → plan → generate BE → generate FE → test → update metadata
